@@ -31,16 +31,28 @@
       "package.json"
     ],
     "win": {
-      "target": "nsis",
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
       "icon": "src/assets/icon.ico",
-      "signAndEditExecutable": false
+      "signAndEditExecutable": false,
+      "signingHashAlgorithms": null,
+      "certificateSubjectName": null,
+      "certificateFile": null,
+      "certificatePassword": null
     },
-    "nsis": {
-      "oneClick": true,
-      "perMachine": true,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "shortcutName": "Excel2PDF"
-    }
+    "extraResources": [
+      {
+        "from": "assets/fonts",
+        "to": "fonts"
+      }
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "assets/fonts/**/*"
+    ]
   }
 }
